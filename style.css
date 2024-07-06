@@ -1,0 +1,167 @@
+/* Base styles */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-gap: 10px;
+  margin: 20px;
+}
+
+.cell {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5em;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), inset 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+#message {
+  text-align: center;
+  margin: 20px;
+  font-size: 2em;
+}
+
+#resetButton {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+#resetButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Dark theme */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+body.dark-mode .cell {
+  background-color: #333;
+  border: 2px solid #555;
+}
+
+body.dark-mode .cell:hover {
+  background-color: #444;
+}
+
+body.dark-mode #message {
+  color: #0ff;
+}
+
+body.dark-mode #resetButton {
+  background-color: #0ff;
+  color: #1a1a1a;
+}
+
+body.dark-mode #resetButton:hover {
+  background-color: #0cc;
+}
+
+/* Light theme */
+body.light-mode {
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+}
+
+body.light-mode .cell {
+  background-color: #fff;
+  border: 2px solid #ccc;
+}
+
+body.light-mode .cell:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.8), inset 0 0 20px rgba(0, 0, 255, 0.8);
+}
+
+body.light-mode #message {
+  color: #00f;
+}
+
+body.light-mode #resetButton {
+  background-color: #00f;
+  color: #f0f0f0;
+}
+
+body.light-mode #resetButton:hover {
+  background-color: #008;
+}
+
+/* Theme switch */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+em {
+  margin-left: 10px;
+}
